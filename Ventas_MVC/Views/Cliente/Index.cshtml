@@ -1,0 +1,34 @@
+﻿
+
+@model IEnumerable<Cliente> // IEnumerable es una interfaz
+
+<h1>INDEX CLIENTE</h1>
+<a asp-action="Create" class="btn btn-outline-dark" style="margin-bottom:10px">CREAR NUEVO</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <label>NOMBRE</label>
+            </th>
+            <th>
+                <label>APELLIDO</label>
+            </th>
+        </tr>
+    </thead>
+    @foreach(var item in Model) {
+        <tr>
+            <td>
+                <label>@item.Nombre</label>
+            </td>
+            <td>
+                <label>@item.Apellido</label>
+            </td>
+            <td>
+                <a asp-action ="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning">EDITAR</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger">BORRAR</a>
+            </td>
+        </tr>
+    }
+</table>
+<a asp-action="Index" asp-controller="Home" class="btn btn-outline-dark">VOLVER</a>
